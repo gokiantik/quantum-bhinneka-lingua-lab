@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17251f">
+<title>Mbah Hogi Bejo — Kesadaran Lingua & Kedaulatan Rakyat (V3 Methodological)</title>
+<style>
+:root{--ink:#18251f;--muted:#66736b;--paper:#f5f1e7;--card:#fffdf7;--green:#254c3c;--gold:#c99b45;--line:#ded8c9;--rust:#a44f35}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 Georgia,serif}
+a{color:inherit}button,select,textarea{font:inherit}.wrap{max-width:1100px;margin:auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:5;background:#17251ff2;color:#fff;padding:10px 0;backdrop-filter:blur(12px)}
+.navin{display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font:bold 14px/1.2 system-ui;letter-spacing:.12em;text-transform:uppercase;color:#f2d69b}.links{display:flex;gap:15px;overflow:auto;white-space:nowrap;font:12px system-ui}.links a{text-decoration:none;color:#e8e4d9}
+.hero{background:radial-gradient(ellipse at 80% 20%,#42644c 0,transparent 42%),linear-gradient(135deg,#17251f,#253e32);color:#fff;padding:92px 0 76px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff24;border-radius:50%;right:-130px;bottom:-250px;box-shadow:0 0 0 35px #ffffff0b,0 0 0 75px #ffffff08}
+.kicker{font:700 11px system-ui;letter-spacing:.2em;text-transform:uppercase;color:#e4bd70}
+h1,h2,h3{line-height:1.15}h1{font-size:clamp(38px,7vw,76px);max-width:850px;margin:20px 0}h2{font-size:clamp(29px,4vw,43px);margin:0 0 18px}h3{font-size:22px;margin:8px 0}
+.lead{font-size:20px;max-width:780px;color:#e6e9e1}.hero .tagline{font:700 12px system-ui;letter-spacing:.16em;color:#e4bd70;margin-top:36px}
+main{padding:38px 0 80px}.section{padding:55px 0;border-bottom:1px solid var(--line);scroll-margin-top:70px}
+.eyebrow{font:700 11px system-ui;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin-bottom:12px}
+.deck{font-size:19px;color:#425148;max-width:780px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:25px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 24px #342b1708}
+.card p:last-child{margin-bottom:0}.num{font:700 12px system-ui;color:var(--rust);letter-spacing:.12em}
+.quote{border-left:4px solid var(--gold);padding:8px 0 8px 22px;font-size:clamp(21px,3vw,29px);line-height:1.4;margin:28px 0;color:#304337}
+.pill{display:inline-block;border:1px solid #d6c9a9;border-radius:30px;padding:5px 11px;font:12px system-ui;color:#6a5730;margin:3px}
+.laws{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.law{background:#203c30;color:#fff;border-radius:15px;padding:20px}.law .num{color:#e4bd70}.law p{color:#e0e7df}
+.steps{counter-reset:step;list-style:none;padding:0}.steps li{counter-increment:step;display:grid;grid-template-columns:42px 1fr;gap:12px;margin:17px 0}.steps li:before{content:counter(step,decimal-leading-zero);font:700 13px system-ui;color:var(--rust);padding-top:5px}
+.promptbox{background:#1d2d25;color:#f7f3e8;border-radius:18px;padding:24px;margin-top:20px}
+.promptbox label{display:block;font:700 12px system-ui;color:#e5c47f;margin:12px 0 6px}
+select,textarea{width:100%;border:1px solid #65776a;background:#f8f5ed;color:#1b2b22;border-radius:9px;padding:11px}
+textarea{min-height:150px;resize:vertical;font:14px/1.6 ui-monospace,monospace}
+.promptbox textarea{background:#17251f;color:#dce4db;border-color:#42554a;}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:13px}
+button,.button{border:0;border-radius:30px;padding:11px 17px;background:var(--gold);color:#1b281f;font:700 13px system-ui;cursor:pointer;text-decoration:none}
+button.secondary{background:transparent;border:1px solid #b9c4b9;color:#fff}
+.small{font:12px/1.6 system-ui;color:#aebdb1}
+.manifesto{background:#e9e1cf;border-radius:18px;padding:28px;margin:25px 0}
+.reference{background:#e9e1cf;border-left:4px solid var(--rust);border-radius:0 12px 12px 0;padding:18px 22px;margin:18px 0;font-size:15px;}
+.reference strong{color:var(--rust);}
+.reference a{text-decoration:underline;word-break:break-all;}
+footer{background:#17251f;color:#dce4db;padding:38px 0;text-align:center;}
+footer .closing{font-size:clamp(25px,4vw,40px);color:#f0d18d;line-height:1.25;margin-bottom:20px;}
+footer .credits{font:12px/1.8 system-ui;color:#aebdb1;margin-top:30px;border-top:1px solid #33453c;padding-top:20px;}
+@media(max-width:700px){.grid,.laws{grid-template-columns:1fr}.hero{padding:68px 0 55px}.links{max-width:55vw}.section{padding:42px 0}}
+@media print{nav,.actions,button{display:none!important}body{background:white}.hero{padding:40px 0}.section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<nav><div class="wrap navin"><div class="brand">Mbah Hogi Bejo</div><div class="links">
+<a href="#manifesto">Manifesto</a><a href="#lingua">Lingua</a><a href="#zi">Zi Zhu Zhe</a><a href="#biliar">Meja Biliar</a><a href="#agency">Agency</a><a href="#ai">Multi-AI V3</a><a href="#methodology">Metodologi</a><a href="#ngruwat">NgRuwat</a>
+</div></div></nav>
+<header class="hero"><div class="wrap">
+<div class="kicker">Koboi Lingua · Catatan tentang kesadaran dan kedaulatan</div>
+<h1>Kesadaran Lingua &amp; Kedaulatan Rakyat</h1>
+<p class="lead">Di tengah dinamika kekuasaan, kepentingan, politik, serta ketidakpastian yang “mekso”. Sebuah ajakan untuk tidak sekadar menjadi bola yang dipukul keadaan, melainkan pemain yang sadar memegang stiknya.</p>
+<div class="tagline">SADAR. BERDAULAT. BIJAK DALAM PILIHAN.</div>
+</div></header>
+<main class="wrap">
+<section class="section" id="manifesto">
+<div class="eyebrow">01 / Manifesto</div><h2>Dari kedaulatan politik menuju kedaulatan kesadaran</h2>
+<p class="deck">Kedaulatan rakyat tidak cukup berhenti pada hak memilih. Ia juga menyangkut kemampuan warga memahami bahasa yang membingkai kenyataan, menyadari dorongan yang menggerakkan dirinya, dan menentukan pilihan tanpa menyerahkan kemudi batinnya kepada pihak lain.</p>
+<div class="quote">“Bagaimana mungkin rakyat benar-benar berdaulat apabila bahasa yang digunakannya, kesadaran yang dimilikinya, dan preferensi yang menentukan pilihannya masih dikendalikan oleh pihak lain?”</div>
+<p>Demokrasi menyediakan prosedur dan ruang partisipasi. Namun kualitas kedaulatan juga ditentukan oleh kualitas kesadaran: apakah kita mampu memeriksa narasi, mengenali kepentingan, membaca kemungkinan, serta bertanggung jawab atas keputusan sendiri?</p>
+<div class="manifesto"><strong>Premis Mbah Hogi Bejo:</strong> kemerdekaan bukan berarti mampu mengendalikan semua hal. Kemerdekaan berarti mampu menyadari apa yang sedang memengaruhi kita, memilih respons dengan jernih, dan bertanggung jawab atas pukulan yang kita ambil.</div>
+</section>
+<section class="section" id="lingua">
+<div class="eyebrow">02 / Bahasa membingkai kenyataan</div><h2>Lingua consciousness</h2>
+<p>Bahasa bukan sekadar alat untuk menyampaikan pikiran. Bahasa juga ikut membentuk kategori, batas perhatian, emosi, dan kemungkinan tindakan. Sebuah isu yang disebut “reformasi” dapat terdengar berbeda ketika dibingkai sebagai “pemangkasan”; “ketertiban” bisa terasa lain ketika dialami sebagai “pembatasan”. Kata-kata bukan realitas itu sendiri, tetapi dapat menjadi lensa yang mengarahkan cara kita melihat realitas.</p>
+<div class="grid">
+<div class="card"><div class="num">LAPIS 1</div><h3>Bahasa yang kita warisi</h3><p>Istilah, slogan, label, dan cerita yang beredar di keluarga, komunitas, media, institusi, serta ruang digital.</p></div>
+<div class="card"><div class="num">LAPIS 2</div><h3>Bahasa yang kita pilih</h3><p>Kemampuan memeriksa definisi, bertanya siapa yang diuntungkan oleh sebuah bingkai, dan menemukan kata yang lebih akurat.</p></div>
+</div>
+<p>Kerangka <em>Levels of Consciousness</em> David R. Hawkins dapat dipakai sebagai pemantik refleksi tentang perubahan kualitas respons—misalnya dari takut dan marah menuju keberanian, penerimaan, atau kejernihan. Namun skala Hawkins bukan alat ukur ilmiah yang tervalidasi untuk menentukan nilai atau tingkat kesadaran seseorang. Gunakan sebagai metafora reflektif, bukan vonis atau diagnosis.</p>
+</section>
+<section class="section" id="zi">
+<div class="eyebrow">03 / Subjek yang berdaulat</div><h2>Zi Zhu Zhe — The Sovereign One</h2>
+<p>“Zi Zhu Zhe” di sini dipakai sebagai gagasan tentang manusia yang mengelola dirinya sendiri: bukan manusia yang hidup tanpa pengaruh, melainkan manusia yang tidak otomatis menyerahkan keputusan kepada pengaruh tersebut.</p>
+<div class="grid">
+<div class="card"><h3>Berdaulat atas bahasa</h3><p>Tidak menelan slogan mentah-mentah. Berani bertanya, menguji istilah, dan membedakan fakta dari bingkai.</p></div>
+<div class="card"><h3>Berdaulat atas kesadaran</h3><p>Mengenali rasa takut, marah, gengsi, harapan, dan kepentingan yang sedang mengemudikan respons.</p></div>
+<div class="card"><h3>Berdaulat atas pilihan</h3><p>Menimbang konsekuensi dan nilai, bukan hanya mengikuti dorongan sesaat atau tekanan kelompok.</p></div>
+<div class="card"><h3>Berdaulat bersama warga lain</h3><p>Kedaulatan pribadi bukan egoisme. Ia tumbuh bersama tanggung jawab, dialog, institusi yang adil, dan penghormatan atas hak orang lain.</p></div>
+</div>
+</section>
+<section class="section" id="biliar">
+<div class="eyebrow">04 / Model probabilitas</div><h2>Indonesia sebagai meja biliar raksasa</h2>
+<p>Bayangkan kehidupan politik dan sosial sebagai meja biliar. Banyak aktor bergerak dengan posisi, energi, tujuan, dan informasi yang berbeda. Satu pukulan dapat memantul ke banyak arah. Hasil akhirnya tidak selalu sama dengan niat awal pemain.</p>
+<div class="laws">
+<div class="law"><div class="num">HUKUM MEJA 01</div><h3>Fisika — Kekuasaan</h3><p>Massa institusi, aturan, sumber daya, dan inersia menentukan seberapa sulit sebuah keadaan digerakkan.</p></div>
+<div class="law"><div class="num">HUKUM MEJA 02</div><h3>Gesekan — Kepentingan</h3><p>Kepentingan politik, ekonomi, sosial, dan pribadi dapat mengubah arah, memperlambat, atau membelokkan gerak.</p></div>
+<div class="law"><div class="num">HUKUM MEJA 03</div><h3>Probabilitas — Ketidakpastian</h3><p>Variabel kecil, momentum, informasi baru, dan pantulan tak terduga membuat hasil tidak sepenuhnya bisa dipastikan.</p></div>
+</div>
+<p>Model ini bukan rumus prediksi matematis. Ia adalah peta berpikir: membantu kita melihat bahwa hasil sosial-politik lahir dari interaksi banyak faktor, bukan dari satu tokoh atau satu sebab tunggal.</p>
+<div class="grid">
+<div class="card"><h3>Lensa makro</h3><p>Membaca struktur besar: demografi, institusi, arus modal, rantai pasok global, ekspektasi pasar, dan konfigurasi kekuasaan.</p></div>
+<div class="card"><h3>Lensa mikro</h3><p>Membaca agensi individu: niat, kesiapan, pengetahuan, kecakapan sosial, akses informasi, serta kemampuan berkolaborasi.</p></div>
+</div>
+</section>
+<section class="section" id="agency">
+<div class="eyebrow">05 / Individual agency</div><h2>Lima bekal pemain</h2>
+<p>Dalam kerangka Mbah Hogi Bejo, peluang bertindak tidak hanya ditentukan oleh posisi di meja. Ia juga dipengaruhi kesiapan pemain dan kualitas pukulannya.</p>
+<ul class="steps">
+<li><div><strong>Niat</strong><br>Tujuan dan nilai yang hendak dijaga. Apa yang sebenarnya ingin diwujudkan?</div></li>
+<li><div><strong>Readiness</strong><br>Kesiapan mental, emosional, material, dan sosial untuk menghadapi konsekuensi.</div></li>
+<li><div><strong>Book Smart</strong><br>Pengetahuan konseptual, data, literasi, dan kemampuan memahami sistem.</div></li>
+<li><div><strong>Street Smart</strong><br>Kepekaan membaca konteks, relasi, momentum, serta dinamika nyata di lapangan.</div></li>
+<li><div><strong>AI Smart</strong><br>Kemampuan menggunakan AI sebagai alat bantu berpikir tanpa menyerahkan penilaian dan tanggung jawab kepadanya.</div></li>
+</ul>
+<div class="quote">“Wo AI, Ni Kamu.” AI boleh membantu membaca kemungkinan. Manusia tetap pemain yang memegang stik.</div>
+</section>
+
+<!-- BAGIAN MULTI-AI DENGAN V3 SYNTHESIS -->
+<section class="section" id="ai">
+<div class="eyebrow">06 / Eksperimentasi multi-AI</div><h2>Empat sudut pandang, satu mesin sintesis</h2>
+<p>Eksperimen multi-AI dapat memperkaya pembacaan masalah dengan meminta beberapa sistem memberi lensa yang berbeda. Di bawah ini, kita membaginya menjadi dua tahap: <strong>Tahap 1 (Mengumpulkan Pantulan)</strong> dan <strong>Tahap 2 (Membaca Geometri Meja / Sintesis Analitis)</strong>.</p>
+<div class="grid">
+<div class="card"><span class="pill">ChatGPT</span><h3>The Logician</h3><p>Uji struktur argumen, hukum institusional, relasi sebab-akibat, dan inersia kekuasaan.</p></div>
+<div class="card"><span class="pill">Claude</span><h3>The Ethicist</h3><p>Uji dimensi etis, dampak terhadap manusia, dilema moral, dan bias yang perlu di-NgRuwat.</p></div>
+<div class="card"><span class="pill">Gemini</span><h3>The Data Reader</h3><p>Periksa konteks makro, data, arus global, rantai pasok, dan ekspektasi eksternal—sertakan sumber.</p></div>
+<div class="card"><span class="pill">Grok</span><h3>The Street Smart</h3><p>Baca gesekan kepentingan, narasi publik, “lambe lan laku”, serta sentimen ruang sosial—bedakan sinyal dan kebisingan.</p></div>
+</div>
+
+<!-- TAHAP 1 -->
+<div class="promptbox">
+<h3>Tahap 1: Generator Prompt Meja Biliar</h3>
+<p class="small">Pilih lensa dan tulis isu yang ingin dibedah. Salin prompt ini ke layanan AI yang sesuai untuk mendapatkan POV mereka.</p>
+<label for="role">Lensa analisis</label>
+<select id="role">
+<option value="logician">The Logician — struktur &amp; kekuasaan</option>
+<option value="ethicist">The Ethicist — etika &amp; NgRuwat</option>
+<option value="data">The Data Reader — data &amp; konteks global</option>
+<option value="street">The Street Smart — kepentingan &amp; narasi publik</option>
+<option value="all">Panel empat lensa — sintesis lintas perspektif</option>
+</select>
+<label for="issue">Isu / pertanyaan yang hendak dianalisis</label>
+<textarea id="issue" placeholder="Contoh: Bagaimana kebijakan X memengaruhi kedaulatan warga, siapa aktor dan kepentingannya, serta skenario apa yang mungkin terjadi?"></textarea>
+<div class="actions"><button id="make">Buat prompt POV</button><button class="secondary" id="copy">Salin prompt POV</button><button class="secondary" id="reset">Bersihkan</button></div>
+<p class="small" id="status" aria-live="polite">Prompt akan muncul di kotak ini. Periksa fakta dan sumber secara mandiri.</p>
+<textarea id="output" readonly placeholder="Prompt hasil racikan akan tampil di sini…"></textarea>
+</div>
+
+<!-- TAHAP 2: V3 SYNTHESIS ENGINE -->
+<div class="promptbox" style="border: 2px solid var(--gold); margin-top: 40px;">
+<h3>🔄 Tahap 2: The Real Synthesis Engine (V3 — Methodological)</h3>
+<p class="small">Tempelkan hasil (POV) dari masing-masing AI ke dalam kolom di bawah ini. Klik "Racik Prompt Sintesis" untuk membuat instruksi analitis yang akan memaksa AI menemukan titik temu, perbedaan, dan skenario—dengan landasan metodologis MAP-TM dan MANUSAKSI-AI.</p>
+
+<label for="pov-chatgpt">1. POV ChatGPT (The Logician)</label>
+<textarea id="pov-chatgpt" placeholder="Paste jawaban ChatGPT di sini..." style="min-height: 100px;"></textarea>
+
+<label for="pov-claude">2. POV Claude (The Ethicist)</label>
+<textarea id="pov-claude" placeholder="Paste jawaban Claude di sini..." style="min-height: 100px;"></textarea>
+
+<label for="pov-gemini">3. POV Gemini (The Data Reader)</label>
+<textarea id="pov-gemini" placeholder="Paste jawaban Gemini di sini..." style="min-height: 100px;"></textarea>
+
+<label for="pov-grok">4. POV Grok (The Street Smart)</label>
+<textarea id="pov-grok" placeholder="Paste jawaban Grok di sini..." style="min-height: 100px;"></textarea>
+
+<div class="actions">
+    <button id="make-synth" style="background: #ff9800; color: #000;">🧠 Racik Prompt Sintesis</button>
+    <button class="secondary" id="copy-synth">Salin Prompt Sintesis</button>
+</div>
+<p class="small" id="status-synth" aria-live="polite">Prompt Sintesis akan muncul di bawah ini.</p>
+<textarea id="output-synth" readonly placeholder="Prompt Sintesis Analitis akan tampil di sini..." style="min-height: 250px;"></textarea>
+<p class="small" style="margin-top: 10px; color: #e5c47f;">*Cara pakai: Setelah prompt sintesis tersalin, buka tab AI baru (bisa ChatGPT/Claude), paste, lalu tekan Enter. AI tersebut akan merangkum keempat POV tadi menjadi satu kesimpulan utuh.</p>
+</div>
+
+</section>
+
+<!-- SECTION METODOLOGI BARU -->
+<section class="section" id="methodology">
+<div class="eyebrow">07 / Landasan Metodologis</div><h2>Fondasi Akademis Probabilita Meja Biliar</h2>
+<p class="deck">Kerangka "Probabilita Meja Biliar" bukan sekadar metafora. Ia berdiri di atas tiga pilar metodologis yang telah didokumentasikan secara akademis oleh Mbah Hogi Bejo (Go Kian Tik) melalui publikasi di Zenodo dan SSRN.</p>
+
+<div class="reference">
+<strong>1. MAP-TM (Multi-AI Probabilistic Trajectory Mapping)</strong><br>
+<em>MAP-TM: A Proposed Methodological Framework for Multi-AI Probabilistic Trajectory Mapping</em> (Working Paper v0.1, 8 November 2026).<br>
+Kerangka ini memperluas kuadran <em>Unknown</em> pada Johari Window menjadi <strong>Johari Frontier</strong>—ruang eksplorasi variabel, relasi, dan lintasan alternatif. MAP-TM memisahkan eksplorasi linguistik oleh LLM dari komputasi probabilitas peristiwa, yang hanya dilakukan ketika parameter yang dapat dijustifikasi tersedia.<br>
+<a href="https://doi.org/10.5281/zenodo.24048468" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.24048468</a>
+</div>
+
+<div class="reference">
+<strong>2. Two Doors to the Unknown</strong><br>
+<em>Two Doors to the Unknown: Sadar Jagat Raya and Inspirasi Kognitif as Parallel Pathways in the Johari Frontier</em> (Working Paper, 15 Juli 2026).<br>
+Makalah ini mengusulkan bahwa kuadran <em>Unknown</em> dapat dicapai melalui dua pintu: <strong>Sadar Jagat Raya</strong> (praktik kontemplatif Dao Yin Shu) dan <strong>Inspirasi Kognitif</strong> (dialog iteratif manusia-AI). Keduanya adalah jalur paralel menuju frontier yang sama.<br>
+<a href="https://doi.org/10.5281/zenodo.21370369" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.21370369</a>
+</div>
+
+<div class="reference">
+<strong>3. MANUSAKSI-AI v1.2</strong><br>
+<em>MANUSAKSI-AI v1.2: A Human-Authenticated Framework for Documenting Human-AI Interaction, Emergent Experience, and Human-AI Lexicon</em> (29 Agustus 2026).<br>
+Kerangka ini menetapkan Manusia sebagai <strong>Human Principal / Human Witness</strong> dan AI sebagai <strong>AI Agent / Interpreter</strong>. Prinsip intinya: <em>"AI may generate language; Human authenticates experience."</em> Inilah formalisasi dari trilogi "Wo AI, Ni Kamu".<br>
+<a href="https://ssrn.com/abstract=7370999" target="_blank" rel="noopener">https://ssrn.com/abstract=7370999</a> | <a href="http://dx.doi.org/10.2139/ssrn.7370999" target="_blank" rel="noopener">http://dx.doi.org/10.2139/ssrn.7370999</a>
+</div>
+
+<p class="small" style="margin-top: 20px; font-style: italic;">Dengan landasan ini, "Meja Biliar" bukan lagi sekadar permainan berpikir, melainkan sebuah <strong>kerangka metodologis</strong> untuk memetakan probabilitas, menguji bias, dan mengembalikan keputusan kepada manusia—sesuai dengan prinsip MAP-TM, Two Doors, dan MANUSAKSI-AI.</p>
+</section>
+
+<section class="section" id="ngruwat">
+<div class="eyebrow">08 / Disiplin kejernihan</div><h2>NgRuwat — membersihkan bias</h2>
+<p>Setiap pembacaan membawa kemungkinan bias: bias algoritmik, bias konfirmasi, bias kelompok, bias sumber, dan bias diri sendiri. NgRuwat adalah disiplin untuk memeriksa apakah kita sedang membaca data atau hanya melihat pantulan keyakinan sendiri.</p>
+<div class="manifesto"><div class="quote">“Apakah saya sedang membaca data, atau sedang membaca pantulan bias saya sendiri?”</div>
+<p>Praktik sederhana: cari bukti yang berlawanan dengan dugaan awal; bedakan fakta, interpretasi, dan spekulasi; periksa sumber primer; minta AI mengkritik argumen kita; dan jangan menganggap kesepakatan beberapa AI sebagai bukti kebenaran.</p></div>
+</section>
+
+<section class="section" id="north">
+<div class="eyebrow">09 / Kompas tindakan</div><h2>True North</h2>
+<p>Kesadaran bukan sekadar tahu lebih banyak. Ia tampak dalam arah tindakan: apakah keputusan mendekatkan kita pada kejujuran, keadilan, tanggung jawab, martabat manusia, dan kehidupan bersama yang lebih baik?</p>
+<p>“Lambe lan Laku”: lambe adalah ucapan, laku adalah tindakan. Bahasa dapat menjadi stik yang mengarahkan gerak, tetapi tindakanlah yang memperlihatkan ke mana bola benar-benar melaju.</p>
+<div class="quote">Pukulan terakhir bukan tentang mengendalikan seluruh meja. Ia tentang bertanggung jawab atas stik yang ada di tangan kita.</div>
+</section>
+</main>
+
+<footer><div class="wrap">
+<div class="kicker">Mbah Hogi Bejo · Koboi Lingua</div>
+<p class="closing">SADAR.<br>BERDAULAT.<br>BIJAK DALAM PILIHAN.</p>
+<p>From Being Played by the Game to Becoming a Conscious Player.</p>
+
+<div class="credits">
+    <strong>Mbah Hogi Bejo&trade;</strong><br>
+    Koboi Lingua · Penggagas Probabilita Lingua Framework<br><br>
+    <strong>Zì Zhǔ Zhě&trade; 自主者</strong><br>
+    Superhero Café Inside&trade;<br><br>
+    &copy; 2026 Mbah Hogi Bejo&trade;. All Rights Reserved.<br>
+    Probabilita Lingua Framework&trade;<br>
+    <em>Naskah, kerangka konseptual, identitas, dan kurasi: Mbah Hogi Bejo&trade;.</em>
+</div>
+</div></footer>
+
+<script>
+// ==========================================
+// TAHAP 1: GENERATOR PROMPT POV
+// ==========================================
+const roles={
+logician:"Anda berperan sebagai THE LOGICIAN. Bedah struktur masalah, hukum institusional, distribusi kekuasaan, inersia, sebab-akibat, dan asumsi tersembunyi. Susun argumen secara logis dan tunjukkan titik lemah penalaran.",
+ethicist:"Anda berperan sebagai THE ETHICIST. Bedah dimensi etika, dampak terhadap manusia, keadilan, martabat, dilema moral, dan bias. Lakukan NgRuwat: uji apakah kesimpulan ditopang bukti atau prasangka.",
+data:"Anda berperan sebagai THE DATA READER. Petakan konteks makro, data relevan, arus modal, rantai pasok, dan ekspektasi global. Gunakan sumber yang dapat diverifikasi, beri tanggal data, dan nyatakan keterbatasannya.",
+street:"Anda berperan sebagai THE STREET SMART. Baca gesekan kepentingan, aktor, insentif, narasi publik, lambe lan laku, dan sentimen sosial. Pisahkan fakta, persepsi, rumor, dan spekulasi.",
+all:"Bertindaklah sebagai panel empat lensa: (1) Logician—struktur dan kekuasaan; (2) Ethicist—etika dan NgRuwat; (3) Data Reader—data dan konteks global; (4) Street Smart—kepentingan dan narasi publik. Sajikan analisis masing-masing, perbedaan pandangan, lalu sintesis yang tidak memaksakan konsensus."
+};
+const make=()=>{const issue=document.getElementById('issue').value.trim();if(!issue){document.getElementById('status').textContent='Isi isu atau pertanyaan terlebih dahulu.';return}
+const prompt=`KONTEKS: Anda membantu eksperimen berpikir “Probabilita Meja Biliar” ala Mbah Hogi Bejo, Koboi Lingua. Anggap dinamika sosial-politik seperti meja biliar: (1) Fisika/Kekuasaan—massa institusi dan inersia; (2) Gesekan/Kepentingan—insentif yang membelokkan gerak; (3) Probabilitas/Ketidakpastian—pantulan tak terduga akibat variabel kecil. Manusia tetap pemegang stik; AI adalah alat bantu memetakan kemungkinan, bukan pemegang keputusan.\n\nISU:\n${issue}\n\nTUGAS:\n${roles[document.getElementById('role').value]}\n\nHASILKAN:\n1. Ringkasan masalah dan pertanyaan inti.\n2. Peta aktor, kepentingan, sumber daya, dan relasi kekuasaan.\n3. Asumsi, bukti, data yang belum tersedia, dan tingkat ketidakpastian.\n4. Beberapa skenario yang masuk akal beserta pemicu dan konsekuensinya (bukan ramalan pasti).\n5. Dampak pada kedaulatan warga: bahasa, kesadaran, dan pilihan.\n6. Pertanyaan NgRuwat untuk menguji bias analisis.\n7. Opsi tindakan dan trade-off; jangan mengambil keputusan atas nama manusia.\n\nPisahkan dengan tegas FAKTA, INTERPRETASI, dan SPEKULASI. Jangan mengarang data atau sumber. Jika informasi aktual diperlukan, sebutkan apa yang harus diverifikasi dan dari sumber primer mana. Akhiri dengan pertanyaan: “Pukulan apa yang secara sadar dan bertanggung jawab berada dalam kendali manusia?”`;
+document.getElementById('output').value=prompt;document.getElementById('status').textContent='Prompt POV siap. Salin dan tempel ke AI pilihan.'};
+document.getElementById('make').addEventListener('click',make);
+document.getElementById('copy').addEventListener('click',async()=>{const t=document.getElementById('output');if(!t.value)make();if(!t.value)return;try{await navigator.clipboard.writeText(t.value);document.getElementById('status').textContent='Prompt POV berhasil disalin.'}catch(e){t.select();document.execCommand('copy');document.getElementById('status').textContent='Jika belum tersalin otomatis, salin teks yang terseleksi.'}});
+document.getElementById('reset').addEventListener('click',()=>{document.getElementById('issue').value='';document.getElementById('output').value='';document.getElementById('status').textContent='Formulir dibersihkan.'});
+
+// ==========================================
+// TAHAP 2: V3 SYNTHESIS ENGINE (METHODOLOGICAL)
+// ==========================================
+document.getElementById('make-synth').addEventListener('click', () => {
+    const pov1 = document.getElementById('pov-chatgpt').value.trim();
+    const pov2 = document.getElementById('pov-claude').value.trim();
+    const pov3 = document.getElementById('pov-gemini').value.trim();
+    const pov4 = document.getElementById('pov-grok').value.trim();
+    const isu = document.getElementById('issue').value.trim() || "[Isu tidak spesifik / lihat konteks di bawah]";
+
+    if(!pov1 && !pov2 && !pov3 && !pov4) {
+        document.getElementById('status-synth').textContent = "Harap isi minimal satu POV AI untuk disintesis.";
+        return;
+    }
+
+    const synthPrompt = `ANDA ADALAH "THE REAL SYNTHESIS ENGINE" DALAM FRAMEWORK PROBABILITA MEJA BILIAR ALA MBAH HOGI BEJO.
+
+Tugas Anda bukan sekadar merangkum, melainkan membaca geometri meja, menemukan titik temu, membongkar kontradiksi, dan menyusun peta probabilitas analitis dari empat perspektif AI yang berbeda.
+
+LANDASAN METODOLOGIS:
+- Gunakan kerangka MAP-TM (Multi-AI Probabilistic Trajectory Mapping) untuk memetakan lintasan probabilitas di Johari Frontier (ruang eksplorasi variabel dan alternatif).
+- Terapkan prinsip MANUSAKSI-AI: AI menghasilkan bahasa (generation), manusia mengautentikasi pengalaman (authentication). Anda adalah AI Agent/Interpreter; manusia adalah Human Principal.
+- Ingat prinsip "Two Doors": eksplorasi linguistik (Inspirasi Kognitif) adalah salah satu pintu menuju pemahaman; pintu lainnya adalah kedalaman kontemplatif. Sintesis Anda adalah bagian dari Inspirasi Kognitif.
+
+KONTEKS ISU YANG DIBAHAS:
+${isu}
+
+BERIKUT ADALAH EMPAT PANTULAN (POV) DARI AI YANG BERBEDA:
+
+[POV 1: THE LOGICIAN / ChatGPT]
+${pov1 || "(Tidak diisi)"}
+
+[POV 2: THE ETHICIST / Claude]
+${pov2 || "(Tidak diisi)"}
+
+[POV 3: THE DATA READER / Gemini]
+${pov3 || "(Tidak diisi)"}
+
+[POV 4: THE STREET SMART / Grok]
+${pov4 || "(Tidak diisi)"}
+
+TUGAS ANDA (HASILKAN 6 TAHAP ANALISIS BERIKUT):
+
+1. CONVERGENCE (Titik Temu): Apa kesimpulan atau pola yang disepakati oleh sebagian besar atau seluruh POV AI di atas?
+2. DIVERGENCE (Perbedaan): Di mana letak perbedaan pendapat, kontradiksi, atau benturan asumsi antar-AI? Jelaskan mengapa mereka berbeda (misal: karena fokus data vs etika).
+3. BLIND SPOTS (Titik Buta): Apa hal paling krusial yang luput, terlewatkan, atau diabaikan oleh keempat AI tersebut?
+4. EVIDENCE CHECK (Uji Bukti): Pisahkan mana yang merupakan FAKTA kuat, mana yang sekadar INTERPRETASI, dan mana yang masuk ranah SPEKULASI dari pantulan mereka.
+5. PROBABILITY MAPPING (Peta Skenario): Susun 3 skenario masa depan (Optimis, Realistis, Buruk) berdasarkan interaksi kekuasaan, kepentingan, dan ketidakpastian. Sebutkan pemicunya (triggers).
+6. HUMAN AGENCY (Pukulan Manusia): Berdasarkan seluruh analisis di atas, apa pukulan (tindakan) paling bijak dan bertanggung jawab yang bisa diambil oleh manusia (rakyat/individu) saat ini?
+
+ATURAN KETAT:
+- Gunakan bahasa yang tajam, filosofis, namun membumi.
+- Jangan mencampuradukkan fakta dengan opini.
+- Akhiri dengan kalimat penutup khas Mbah Hogi Bejo: "Wo AI, Ni Kamu. AI telah memetakan pantulan, stik tetap di tanganmu."`;
+
+    document.getElementById('output-synth').value = synthPrompt;
+    document.getElementById('status-synth').textContent = "Prompt Sintesis berhasil diracik! Silakan salin dan tempel ke AI.";
+});
+
+document.getElementById('copy-synth').addEventListener('click', async () => {
+    const t = document.getElementById('output-synth');
+    if(!t.value) {
+        document.getElementById('status-synth').textContent = "Racik prompt terlebih dahulu.";
+        return;
+    }
+    try {
+        await navigator.clipboard.writeText(t.value);
+        document.getElementById('status-synth').textContent = "Prompt Sintesis berhasil disalin! Buka ChatGPT/Claude dan paste.";
+    } catch(e) {
+        t.select();
+        document.execCommand('copy');
+        document.getElementById('status-synth').textContent = "Tersalin (manual). Silakan paste.";
+    }
+});
+</script>
+</body>
+</html>
