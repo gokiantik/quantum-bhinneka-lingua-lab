@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17251f">
+<meta name="description" content="Mbah Hogi Bejo — Kesadaran Lingua & Kedaulatan Rakyat. Quantum Bhinneka Lingua Lab: generator prompt Meja Biliar dan mesin sintesis multi-AI (V3.4 Bilingual).">
+<title>Mbah Hogi Bejo — Kesadaran Lingua & Kedaulatan Rakyat (V3.4 Bilingual)</title>
+<style>
+:root{--ink:#18251f;--muted:#66736b;--paper:#f5f1e7;--card:#fffdf7;--green:#254c3c;--gold:#c99b45;--line:#ded8c9;--rust:#a44f35}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 Georgia,serif}
+a{color:inherit}
+button,select,textarea{font:inherit}
+.wrap{max-width:1100px;margin:auto;padding:0 22px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:8px 14px;border-radius:8px;z-index:20;font:13px system-ui}
+.skip:focus{left:8px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+nav{position:sticky;top:0;z-index:5;background:#17251ff2;color:#fff;padding:10px 0;backdrop-filter:blur(12px)}
+.navin{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font:bold 14px/1.2 system-ui;letter-spacing:.12em;text-transform:uppercase;color:#f2d69b;white-space:nowrap}
+.links{display:flex;gap:15px;overflow:auto;white-space:nowrap;font:12px system-ui;align-items:center}
+.links a{text-decoration:none;color:#e8e4d9}
+.links a:hover{color:#f2d69b}
+.lang-btn{background:var(--gold);color:#1b281f;border:none;border-radius:20px;padding:5px 12px;font:bold 11px system-ui;cursor:pointer;transition:background .3s;flex:none}
+.lang-btn:hover{background:#dfb45c}
+
+/* Bilingual: default = Indonesian; body.en-mode = English */
+body:not(.en-mode) .lang-en{display:none!important}
+body.en-mode .lang-id{display:none!important}
+
+.hero{background:radial-gradient(ellipse at 80% 20%,#42644c 0,transparent 42%),linear-gradient(135deg,#17251f,#253e32);color:#fff;padding:92px 0 76px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff24;border-radius:50%;right:-130px;bottom:-250px;box-shadow:0 0 0 35px #ffffff0b,0 0 0 75px #ffffff08}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px #00000030;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.kicker{font:700 11px system-ui;letter-spacing:.2em;text-transform:uppercase;color:#e4bd70}
+h1,h2,h3{line-height:1.15}
+h1{font-size:clamp(38px,7vw,76px);max-width:850px;margin:20px 0}
+h2{font-size:clamp(29px,4vw,43px);margin:0 0 18px}
+h3{font-size:22px;margin:8px 0}
+.lead{font-size:20px;max-width:780px;color:#e6e9e1}
+.hero .tagline{font:700 12px system-ui;letter-spacing:.16em;color:#e4bd70;margin-top:36px}
+main{padding:38px 0 80px}
+.section{padding:55px 0;border-bottom:1px solid var(--line);scroll-margin-top:70px}
+.eyebrow{font:700 11px system-ui;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin-bottom:12px}
+.deck{font-size:19px;color:#425148;max-width:780px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:25px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 24px #342b1708}
+.card p:last-child{margin-bottom:0}
+.num{font:700 12px system-ui;color:var(--rust);letter-spacing:.12em}
+.quote{border-left:4px solid var(--gold);padding:8px 0 8px 22px;font-size:clamp(21px,3vw,29px);line-height:1.4;margin:28px 0;color:#304337}
+.quote.center{text-align:center;font-weight:bold;font-size:18px;letter-spacing:1px;border-left:none;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:15px 0}
+.note{font:14px/1.6 system-ui;color:var(--muted);border:1px dashed #cdbf9d;border-radius:12px;padding:12px 16px;margin:18px 0;background:#fbf7ea}
+.laws{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.law{background:#203c30;color:#fff;border-radius:15px;padding:20px}
+.law .num{color:#e4bd70}
+.law p{color:#e0e7df}
+.steps{counter-reset:step;list-style:none;padding:0}
+.steps li{counter-increment:step;display:grid;grid-template-columns:42px 1fr;gap:12px;margin:17px 0}
+.steps li:before{content:counter(step,decimal-leading-zero);font:700 13px system-ui;color:var(--rust);padding-top:5px}
+.checklist{padding-left:20px}
+.checklist li{margin:6px 0}
+
+.promptbox{background:#1d2d25;color:#f7f3e8;border-radius:18px;padding:24px;margin-top:20px}
+.promptbox.gold{border:2px solid var(--gold);margin-top:40px}
+.promptbox label{display:block;font:700 12px system-ui;color:#e5c47f;margin:14px 0 6px}
+select,textarea{width:100%;border:1px solid #65776a;background:#f8f5ed;color:#1b2b22;border-radius:9px;padding:11px}
+textarea{min-height:150px;resize:vertical;font:14px/1.6 ui-monospace,monospace}
+.promptbox textarea{background:#17251f;color:#dce4db;border-color:#42554a}
+.promptbox select{background:#17251f;color:#dce4db;border-color:#42554a}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:13px}
+button,.button{border:0;border-radius:30px;padding:11px 17px;background:var(--gold);color:#1b281f;font:700 13px system-ui;cursor:pointer;text-decoration:none}
+button:hover{filter:brightness(1.07)}
+button.secondary{background:transparent;border:1px solid #b9c4b9;color:#fff}
+button.orange{background:#ff9800;color:#000}
+.small{font:12px/1.6 system-ui;color:#aebdb1}
+.status{font:13px/1.5 system-ui;min-height:20px;margin-top:10px;color:#f2d69b}
+
+.manifesto{background:#e9e1cf;border-radius:18px;padding:28px;margin:25px 0}
+.reference{background:#e9e1cf;border-left:4px solid var(--rust);border-radius:0 12px 12px 0;padding:18px 22px;margin:18px 0;font-size:15px}
+.reference strong{color:var(--rust)}
+.reference a{text-decoration:underline;word-break:break-all}
+.badge{display:inline-block;font:700 10px system-ui;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rust);color:var(--rust);border-radius:20px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+footer{background:#17251f;color:#dce4db;padding:38px 0;text-align:center}
+footer .closing{font-size:clamp(25px,4vw,40px);color:#f0d18d;line-height:1.25;margin-bottom:20px}
+footer .credits{font:12px/1.8 system-ui;color:#aebdb1;margin-top:30px;border-top:1px solid #33453c;padding-top:20px}
+
+@media(max-width:700px){.grid,.laws{grid-template-columns:1fr}.hero{padding:68px 0 55px}.links{max-width:62vw}.section{padding:42px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{nav,.actions,button,.promptbox,.skip{display:none!important}body{background:#fff}.hero{padding:40px 0;color:#000;background:#fff}.hero .lead,.hero .kicker,.hero .tagline{color:#000}.section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#latar"><span class="lang-id">Lompat ke konten</span><span class="lang-en">Skip to content</span></a>
+
+<nav aria-label="Navigasi utama"><div class="wrap navin">
+<div class="brand">Mbah Hogi Bejo</div>
+<div class="links">
+  <a href="#latar"><span class="lang-id">Latar Belakang</span><span class="lang-en">Background</span></a>
+  <a href="#manifesto">Manifesto</a>
+  <a href="#lingua">Lingua</a>
+  <a href="#zi">Zi Zhu Zhe</a>
+  <a href="#biliar"><span class="lang-id">Meja Biliar</span><span class="lang-en">Billiard Table</span></a>
+  <a href="#agency">Agency</a>
+  <a href="#ai">Multi-AI</a>
+  <a href="#methodology"><span class="lang-id">Metodologi</span><span class="lang-en">Methodology</span></a>
+  <a href="#ngruwat">NgRuwat</a>
+  <a href="#north">True North</a>
+  <button class="lang-btn" id="langBtn" type="button" aria-label="Ganti bahasa / Switch language">🌐 EN</button>
+</div>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+
+    <img
+      src="./quantum-bhinneka-lingua-lab-banner.png"
+      alt="Quantum Bhinneka Lingua Lab — Mbah Hogi Bejo, Kesadaran Lingua, Probabilitas, Multi-AI Synthesis, dan Kedaulatan Manusia"
+      class="hero-image"
+    >
+
+    <h1 class="visually-hidden">
+      Quantum Bhinneka Lingua Lab — Kesadaran Lingua & Kedaulatan Rakyat
+    </h1>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="section" id="latar">
+<div class="eyebrow">00 / <span class="lang-id">Latar Belakang</span><span class="lang-en">Background</span></div>
+<h2 class="lang-id">81 Menuju 100: Spektrum Kesadaran</h2>
+<h2 class="lang-en">81 to 100: Spectrum of Consciousness</h2>
+<p class="deck lang-id">Repositori riset <em>lingua</em> berbantu AI ini lahir di tengah riuhnya <em>noise</em> dinamika kebangsaan—sebuah progresi menuju <strong>usia 100 tahun Indonesia di 2045</strong>, dari titik <strong>81 tahun</strong> saat ini dalam skala peradaban NKRI.</p>
+<p class="deck lang-en">This AI-assisted <em>lingua</em> research repository was born amidst the noise of national dynamics—a progression towards <strong>Indonesia's 100th year in 2045</strong>, from the current <strong>81-year</strong> mark on the civilization scale of the Unitary State of the Republic of Indonesia (NKRI).</p>
+<p class="lang-id">Dalam perjalanan itu, <strong>285 juta jiwa yang Bhinneka</strong> bukanlah entitas monolitik, melainkan spektrum kesadaran yang bergerak dalam gradasi pemahaman yang tak seragam.</p>
+<p class="lang-en">In this journey, the <strong>285 million diverse souls (Bhinneka)</strong> are not a monolithic entity, but a spectrum of consciousness moving in non-uniform gradations of understanding.</p>
+<p class="lang-id"><strong>Lingua (bahasa)</strong> adalah kabel yang menghubungkan satu jiwa dengan jiwa lainnya. Namun, kabel itu tidak selalu menghantarkan sinyal yang sama. Ia merambat melalui enam tingkat resistensi:</p>
+<p class="lang-en"><strong>Lingua (language)</strong> is the cable that connects one soul to another. However, the cable does not always transmit the same signal. It propagates through six levels of resistance:</p>
+<div class="quote center">
+  <span class="lang-id">Gagal Paham → Gagap Paham → Kurang Paham →<br>Salah Paham → Sama Paham → Saling Paham</span>
+  <span class="lang-en">Failed to Understand → Stuttering to Understand → Lacking Understanding →<br>Misunderstanding → Same Understanding → Mutual Understanding</span>
+</div>
+<p class="lang-id">Berbeda dengan <strong>logika numerik</strong> yang deterministik—di mana kalkulator bekerja dengan aturan pasti—maka <strong>logika lingua</strong> bersifat probabilistik. AI LLM memprediksi kemungkinan kata, membuka spektrum luas untuk dipersepsi dan dipahami dengan tingkat serta gradasi yang sangat <em>Bhinneka</em>.</p>
+<p class="lang-en">Unlike <strong>numerical logic</strong> which is deterministic—where calculators operate on fixed rules—<strong>lingua logic</strong> is probabilistic. AI LLMs predict the probability of words, opening a broad spectrum to be perceived and understood with highly <em>Bhinneka</em> (diverse) levels and gradations.</p>
+<p class="lang-id">Karena itu, payung konsepsi riset ini memandang <strong>Indonesia sebagai peradaban manusia dan kemanusiaan (<em>humanity</em>)</strong> yang menitikberatkan pada penggunaan <strong>Lingua di seluruh dimensinya</strong>—mulai dari ranah politik, ekonomi, hukum, sosial, hingga teknologi.</p>
+<p class="lang-en">Therefore, the conceptual umbrella of this research views <strong>Indonesia as a civilization of humanity</strong> that emphasizes the use of <strong>Lingua in all its dimensions</strong>—from politics, economics, law, and social life to technology.</p>
+</section>
+
+<section class="section" id="manifesto">
+<div class="eyebrow">01 / Manifesto</div>
+<h2 class="lang-id">Dari kedaulatan politik menuju kedaulatan kesadaran</h2>
+<h2 class="lang-en">From political sovereignty to sovereignty of consciousness</h2>
+<p class="deck lang-id">Kedaulatan rakyat tidak cukup berhenti pada hak memilih. Ia juga menyangkut kemampuan warga memahami bahasa yang membingkai kenyataan, menyadari dorongan yang menggerakkan dirinya, dan menentukan pilihan tanpa menyerahkan kemudi batinnya kepada pihak lain.</p>
+<p class="deck lang-en">People's sovereignty does not end at the right to vote. It also concerns citizens' ability to understand the language that frames reality, recognize the impulses driving them, and make choices without handing the steering wheel of their inner self to others.</p>
+<div class="quote lang-id">“Bagaimana mungkin rakyat benar-benar berdaulat apabila bahasa yang digunakannya, kesadaran yang dimilikinya, dan preferensi yang menentukan pilihannya masih dikendalikan oleh pihak lain?”</div>
+<div class="quote lang-en">"How can the people be truly sovereign if the language they use, the consciousness they possess, and the preferences determining their choices are still controlled by others?"</div>
+<p class="lang-id">Demokrasi menyediakan prosedur dan ruang partisipasi. Namun kualitas kedaulatan juga ditentukan oleh kualitas kesadaran: apakah kita mampu memeriksa narasi, mengenali kepentingan, membaca kemungkinan, serta bertanggung jawab atas keputusan sendiri?</p>
+<p class="lang-en">Democracy provides procedures and space for participation. But the quality of sovereignty is also determined by the quality of awareness: can we examine narratives, recognize interests, read possibilities, and take responsibility for our own decisions?</p>
+<div class="manifesto">
+  <p class="lang-id"><strong>Premis Mbah Hogi Bejo:</strong> kemerdekaan bukan berarti mampu mengendalikan semua hal. Kemerdekaan berarti mampu menyadari apa yang sedang memengaruhi kita, memilih respons dengan jernih, dan bertanggung jawab atas pukulan yang kita ambil.</p>
+  <p class="lang-en"><strong>Premise of Mbah Hogi Bejo:</strong> freedom does not mean being able to control everything. Freedom means being able to realize what is influencing us, choosing a response clearly, and taking responsibility for the shot we take.</p>
+</div>
+</section>
+
+<section class="section" id="lingua">
+<div class="eyebrow">02 / <span class="lang-id">Bahasa membingkai kenyataan</span><span class="lang-en">Language frames reality</span></div>
+<h2>Lingua consciousness</h2>
+<p class="lang-id">Bahasa bukan sekadar alat untuk menyampaikan pikiran. Bahasa juga ikut membentuk kategori, batas perhatian, emosi, dan kemungkinan tindakan. Sebuah isu yang disebut “reformasi” dapat terdengar berbeda ketika dibingkai sebagai “pemangkasan”; “ketertiban” bisa terasa lain ketika dialami sebagai “pembatasan”. Kata-kata bukan realitas itu sendiri, tetapi dapat menjadi lensa yang mengarahkan cara kita melihat realitas.</p>
+<p class="lang-en">Language is not merely a tool to convey thoughts. Language also helps shape categories, limits of attention, emotions, and possibilities for action. An issue called "reform" can sound different when framed as "cutting"; "order" can feel different when experienced as "restriction". Words are not reality itself, but they can become lenses that direct how we see reality.</p>
+<div class="grid">
+  <div class="card">
+    <div class="num">LAPIS 1 / LAYER 1</div>
+    <h3 class="lang-id">Bahasa yang kita warisi</h3><h3 class="lang-en">The language we inherit</h3>
+    <p class="lang-id">Istilah, slogan, label, dan cerita yang beredar di keluarga, komunitas, media, institusi, serta ruang digital.</p>
+    <p class="lang-en">Terms, slogans, labels, and stories circulating in families, communities, media, institutions, and digital spaces.</p>
+  </div>
+  <div class="card">
+    <div class="num">LAPIS 2 / LAYER 2</div>
+    <h3 class="lang-id">Bahasa yang kita pilih</h3><h3 class="lang-en">The language we choose</h3>
+    <p class="lang-id">Kemampuan memeriksa definisi, bertanya siapa yang diuntungkan oleh sebuah bingkai, dan menemukan kata yang lebih akurat.</p>
+    <p class="lang-en">The ability to examine definitions, ask who benefits from a frame, and find more accurate words.</p>
+  </div>
+</div>
+<p class="note lang-id">Kerangka <em>Levels of Consciousness</em> David R. Hawkins dapat dipakai sebagai pemantik refleksi tentang perubahan kualitas respons—misalnya dari takut dan marah menuju keberanian, penerimaan, atau kejernihan. Namun skala Hawkins bukan alat ukur ilmiah yang tervalidasi untuk menentukan nilai atau tingkat kesadaran seseorang. Gunakan sebagai metafora reflektif, bukan vonis atau diagnosis.</p>
+<p class="note lang-en">David R. Hawkins' <em>Levels of Consciousness</em> framework can be used as a prompt for reflecting on shifts in the quality of response—for example from fear and anger toward courage, acceptance, or clarity. However, the Hawkins scale is not a scientifically validated instrument for determining a person's worth or level of consciousness. Use it as a reflective metaphor, not a verdict or diagnosis.</p>
+</section>
+
+<section class="section" id="zi">
+<div class="eyebrow">03 / <span class="lang-id">Subjek yang berdaulat</span><span class="lang-en">The sovereign subject</span></div>
+<h2>Zi Zhu Zhe — The Sovereign One</h2>
+<p class="lang-id">“Zi Zhu Zhe” di sini dipakai sebagai gagasan tentang manusia yang mengelola dirinya sendiri: bukan manusia yang hidup tanpa pengaruh, melainkan manusia yang tidak otomatis menyerahkan keputusan kepada pengaruh tersebut.</p>
+<p class="lang-en">"Zi Zhu Zhe" is used here as the idea of a human managing themselves: not a human living without influence, but a human who does not automatically surrender decisions to that influence.</p>
+<div class="grid">
+  <div class="card">
+    <h3 class="lang-id">Berdaulat atas bahasa</h3><h3 class="lang-en">Sovereign over language</h3>
+    <p class="lang-id">Tidak menelan slogan mentah-mentah. Berani bertanya, menguji istilah, dan membedakan fakta dari bingkai.</p>
+    <p class="lang-en">Not swallowing slogans raw. Daring to ask, test terms, and distinguish facts from frames.</p>
+  </div>
+  <div class="card">
+    <h3 class="lang-id">Berdaulat atas kesadaran</h3><h3 class="lang-en">Sovereign over consciousness</h3>
+    <p class="lang-id">Mengenali rasa takut, marah, gengsi, harapan, dan kepentingan yang sedang mengemudikan respons.</p>
+    <p class="lang-en">Recognizing fear, anger, prestige, hope, and interests currently steering the response.</p>
+  </div>
+  <div class="card">
+    <h3 class="lang-id">Berdaulat atas pilihan</h3><h3 class="lang-en">Sovereign over choice</h3>
+    <p class="lang-id">Menimbang konsekuensi dan nilai, bukan hanya mengikuti dorongan sesaat atau tekanan kelompok.</p>
+    <p class="lang-en">Weighing consequences and values, not merely following momentary impulses or group pressure.</p>
+  </div>
+  <div class="card">
+    <h3 class="lang-id">Berdaulat bersama warga lain</h3><h3 class="lang-en">Sovereign alongside fellow citizens</h3>
+    <p class="lang-id">Kedaulatan pribadi bukan egoisme. Ia tumbuh bersama tanggung jawab, dialog, institusi yang adil, dan penghormatan atas hak orang lain.</p>
+    <p class="lang-en">Personal sovereignty is not egoism. It grows together with responsibility, dialogue, fair institutions, and respect for the rights of others.</p>
+  </div>
+</div>
+</section>
+
+<section class="section" id="biliar">
+<div class="eyebrow">04 / <span class="lang-id">Model probabilitas</span><span class="lang-en">Probability model</span></div>
+<h2 class="lang-id">Indonesia sebagai meja biliar raksasa</h2>
+<h2 class="lang-en">Indonesia as a giant billiard table</h2>
+<p class="lang-id">Bayangkan kehidupan politik dan sosial sebagai meja biliar. Banyak aktor bergerak dengan posisi, energi, tujuan, dan informasi yang berbeda. Satu pukulan dapat memantul ke banyak arah. Hasil akhirnya tidak selalu sama dengan niat awal pemain.</p>
+<p class="lang-en">Imagine political and social life as a billiard table. Many actors move with different positions, energies, goals, and information. One shot can bounce in many directions. The final result is not always the same as the player's initial intention.</p>
+<div class="laws">
+  <div class="law">
+    <div class="num">HUKUM MEJA 01 / TABLE LAW 01</div>
+    <h3 class="lang-id">Fisika — Kekuasaan</h3><h3 class="lang-en">Physics — Power</h3>
+    <p class="lang-id">Massa institusi, aturan, sumber daya, dan inersia menentukan seberapa sulit sebuah keadaan digerakkan.</p>
+    <p class="lang-en">Institutional mass, rules, resources, and inertia determine how difficult a situation is to move.</p>
+  </div>
+  <div class="law">
+    <div class="num">HUKUM MEJA 02 / TABLE LAW 02</div>
+    <h3 class="lang-id">Gesekan — Kepentingan</h3><h3 class="lang-en">Friction — Interest</h3>
+    <p class="lang-id">Kepentingan politik, ekonomi, sosial, dan pribadi dapat mengubah arah, memperlambat, atau membelokkan gerak.</p>
+    <p class="lang-en">Political, economic, social, and personal interests can change direction, slow down, or deflect motion.</p>
+  </div>
+  <div class="law">
+    <div class="num">HUKUM MEJA 03 / TABLE LAW 03</div>
+    <h3 class="lang-id">Probabilitas — Ketidakpastian</h3><h3 class="lang-en">Probability — Uncertainty</h3>
+    <p class="lang-id">Variabel kecil, momentum, informasi baru, dan pantulan tak terduga membuat hasil tidak sepenuhnya bisa dipastikan.</p>
+    <p class="lang-en">Small variables, momentum, new information, and unexpected bounces make the outcome not entirely certain.</p>
+  </div>
+</div>
+<p class="note lang-id">Model ini bukan rumus prediksi matematis. Ia adalah peta berpikir: membantu kita melihat bahwa hasil sosial-politik lahir dari interaksi banyak faktor, bukan dari satu tokoh atau satu sebab tunggal.</p>
+<p class="note lang-en">This model is not a mathematical prediction formula. It is a thinking map: it helps us see that socio-political outcomes arise from the interaction of many factors, not from a single figure or a single cause.</p>
+<div class="grid">
+  <div class="card">
+    <h3 class="lang-id">Lensa makro</h3><h3 class="lang-en">Macro lens</h3>
+    <p class="lang-id">Membaca struktur besar: demografi, institusi, arus modal, rantai pasok global, ekspektasi pasar, dan konfigurasi kekuasaan.</p>
+    <p class="lang-en">Reading large structures: demographics, institutions, capital flows, global supply chains, market expectations, and power configurations.</p>
+  </div>
+  <div class="card">
+    <h3 class="lang-id">Lensa mikro</h3><h3 class="lang-en">Micro lens</h3>
+    <p class="lang-id">Membaca agensi individu: niat, kesiapan, pengetahuan, kecakapan sosial, akses informasi, serta kemampuan berkolaborasi.</p>
+    <p class="lang-en">Reading individual agency: intention, readiness, knowledge, social skill, access to information, and the ability to collaborate.</p>
+  </div>
+</div>
+</section>
+
+<section class="section" id="agency">
+<div class="eyebrow">05 / Individual agency</div>
+<h2 class="lang-id">Lima bekal pemain</h2>
+<h2 class="lang-en">Five player provisions</h2>
+<p class="lang-id">Peluang bertindak tidak hanya ditentukan oleh posisi di meja. Ia juga dipengaruhi kesiapan pemain dan kualitas pukulannya.</p>
+<p class="lang-en">The chance to act is not determined only by position on the table. It is also shaped by the player's readiness and the quality of the shot.</p>
+<ul class="steps">
+  <li><div><strong>Niat / Intention</strong><br><span class="lang-id">Tujuan dan nilai yang hendak dijaga. Apa yang sebenarnya ingin diwujudkan?</span><span class="lang-en">Goals and values to be upheld. What do you actually want to bring about?</span></div></li>
+  <li><div><strong>Readiness</strong><br><span class="lang-id">Kesiapan mental, emosional, material, dan sosial untuk menghadapi konsekuensi.</span><span class="lang-en">Mental, emotional, material, and social readiness to face consequences.</span></div></li>
+  <li><div><strong>Book Smart</strong><br><span class="lang-id">Pengetahuan konseptual, data, literasi, dan kemampuan memahami sistem.</span><span class="lang-en">Conceptual knowledge, data, literacy, and the ability to understand systems.</span></div></li>
+  <li><div><strong>Street Smart</strong><br><span class="lang-id">Kepekaan membaca konteks, relasi, momentum, serta dinamika nyata di lapangan.</span><span class="lang-en">Sensitivity to context, relationships, momentum, and real dynamics on the ground.</span></div></li>
+  <li><div><strong>AI Smart</strong><br><span class="lang-id">Kemampuan menggunakan AI sebagai alat bantu berpikir tanpa menyerahkan penilaian dan tanggung jawab kepadanya.</span><span class="lang-en">The ability to use AI as a thinking aid without handing over judgment and responsibility to it.</span></div></li>
+</ul>
+<div class="quote lang-id">“Wo AI, Ni Kamu.” AI boleh membantu membaca kemungkinan. Manusia tetap pemain yang memegang stik.</div>
+<div class="quote lang-en">"Wo AI, Ni Kamu." AI may help read the possibilities. Humans remain the players holding the cue.</div>
+</section>
+
+<section class="section" id="ai">
+<div class="eyebrow">06 / <span class="lang-id">Eksperimentasi multi-AI</span><span class="lang-en">Multi-AI experimentation</span></div>
+<h2 class="lang-id">Empat sudut pandang, satu mesin sintesis</h2>
+<h2 class="lang-en">Four perspectives, one synthesis engine</h2>
+<p class="lang-id">Eksperimen multi-AI memperkaya pembacaan masalah dengan meminta beberapa sistem memberi lensa berbeda. Dibagi dua tahap: <strong>Tahap 1 (Mengumpulkan Pantulan)</strong> dan <strong>Tahap 2 (Membaca Geometri Meja / Sintesis Analitis)</strong>. Pembagian peran di bawah hanyalah titik awal; Anda bebas menukar lensa antar-AI.</p>
+<p class="lang-en">Multi-AI experimentation enriches the reading of a problem by asking several systems for different lenses. It has two phases: <strong>Phase 1 (Collecting Reflections)</strong> and <strong>Phase 2 (Reading the Table Geometry / Analytical Synthesis)</strong>. The role assignments below are only a starting point; feel free to swap lenses between AIs.</p>
+<div class="grid">
+  <div class="card"><div class="num">ChatGPT</div><h3>The Logician</h3>
+    <p class="lang-id">Uji struktur argumen, hukum institusional, relasi sebab-akibat, dan inersia kekuasaan.</p>
+    <p class="lang-en">Test argument structure, institutional law, cause-and-effect relations, and the inertia of power.</p></div>
+  <div class="card"><div class="num">Claude</div><h3>The Ethicist</h3>
+    <p class="lang-id">Uji dimensi etis, dampak terhadap manusia, dilema moral, dan bias yang perlu di-NgRuwat.</p>
+    <p class="lang-en">Test the ethical dimension, human impact, moral dilemmas, and biases that need NgRuwat.</p></div>
+  <div class="card"><div class="num">Gemini</div><h3>The Data Reader</h3>
+    <p class="lang-id">Periksa konteks makro, data, arus global, rantai pasok, dan ekspektasi eksternal—sertakan sumber.</p>
+    <p class="lang-en">Examine macro context, data, global flows, supply chains, and external expectations—include sources.</p></div>
+  <div class="card"><div class="num">Grok</div><h3>The Street Smart</h3>
+    <p class="lang-id">Baca gesekan kepentingan, narasi publik, “lambe lan laku”, serta sentimen ruang sosial—bedakan sinyal dan kebisingan.</p>
+    <p class="lang-en">Read the friction of interests, public narratives, "lambe lan laku", and social-space sentiment—separate signal from noise.</p></div>
+</div>
+
+<div class="promptbox">
+  <h3 class="lang-id">Tahap 1: Generator Prompt Meja Biliar</h3>
+  <h3 class="lang-en">Phase 1: Billiard Table Prompt Generator</h3>
+  <p class="small lang-id">Pilih lensa dan tulis isu yang ingin dibedah. Salin prompt ke layanan AI yang sesuai untuk mendapatkan POV-nya.</p>
+  <p class="small lang-en">Choose a lens and write the issue you want to dissect. Copy the prompt into the matching AI service to get its POV.</p>
+
+  <label for="role"><span class="lang-id">Lensa analisis</span><span class="lang-en">Analysis lens</span></label>
+  <select id="role">
+    <option value="logician" data-id="The Logician — struktur &amp; kekuasaan" data-en="The Logician — structure &amp; power">The Logician — struktur &amp; kekuasaan</option>
+    <option value="ethicist" data-id="The Ethicist — etika &amp; NgRuwat" data-en="The Ethicist — ethics &amp; NgRuwat">The Ethicist — etika &amp; NgRuwat</option>
+    <option value="data" data-id="The Data Reader — data &amp; konteks global" data-en="The Data Reader — data &amp; global context">The Data Reader — data &amp; konteks global</option>
+    <option value="street" data-id="The Street Smart — kepentingan &amp; narasi publik" data-en="The Street Smart — interests &amp; public narrative">The Street Smart — kepentingan &amp; narasi publik</option>
+    <option value="panel" data-id="Panel empat lensa — sintesis lintas perspektif" data-en="Four-lens panel — cross-perspective synthesis">Panel empat lensa — sintesis lintas perspektif</option>
+  </select>
+
+  <label for="issue"><span class="lang-id">Isu / pertanyaan yang hendak dianalisis</span><span class="lang-en">Issue / question to be analyzed</span></label>
+  <textarea id="issue" data-ph-id="Contoh: Bagaimana kebijakan X memengaruhi kedaulatan warga…" data-ph-en="Example: How does policy X affect citizens' sovereignty…"></textarea>
+
+  <div class="actions">
+    <button id="make" type="button"><span class="lang-id">Buat prompt POV</span><span class="lang-en">Make POV prompt</span></button>
+    <button class="secondary" id="copy" type="button"><span class="lang-id">Salin prompt</span><span class="lang-en">Copy prompt</span></button>
+    <button class="secondary" id="clear" type="button"><span class="lang-id">Bersihkan</span><span class="lang-en">Clear</span></button>
+  </div>
+  <label for="output"><span class="lang-id">Prompt POV</span><span class="lang-en">POV prompt</span></label>
+  <textarea id="output" readonly data-ph-id="Prompt hasil racikan akan tampil di sini…" data-ph-en="The generated prompt will appear here…"></textarea>
+  <p class="small lang-id">Periksa fakta dan sumber secara mandiri. Jangan memasukkan data pribadi atau rahasia ke layanan AI pihak ketiga.</p>
+  <p class="small lang-en">Verify facts and sources yourself. Do not enter personal or confidential data into third-party AI services.</p>
+  <div class="status" id="status1" role="status" aria-live="polite"></div>
+</div>
+
+<div class="promptbox gold">
+  <h3 class="lang-id">🔄 Tahap 2: The Real Synthesis Engine (V3.4)</h3>
+  <h3 class="lang-en">🔄 Phase 2: The Real Synthesis Engine (V3.4)</h3>
+  <p class="small lang-id">Tempelkan hasil (POV) dari masing-masing AI. Isi minimal dua POV. Prompt sintesis akan memaksa AI mencari titik temu, perbedaan, titik buta, dan argumen tandingan terhadap kesimpulannya sendiri.</p>
+  <p class="small lang-en">Paste the result (POV) from each AI. Fill in at least two POVs. The synthesis prompt makes the AI find convergence, divergence, blind spots, and a counter-argument against its own conclusion.</p>
+
+  <label for="pov-chatgpt">1. POV ChatGPT (The Logician)</label>
+  <textarea id="pov-chatgpt" data-ph-id="Paste jawaban ChatGPT di sini…" data-ph-en="Paste ChatGPT's answer here…"></textarea>
+  <label for="pov-claude">2. POV Claude (The Ethicist)</label>
+  <textarea id="pov-claude" data-ph-id="Paste jawaban Claude di sini…" data-ph-en="Paste Claude's answer here…"></textarea>
+  <label for="pov-gemini">3. POV Gemini (The Data Reader)</label>
+  <textarea id="pov-gemini" data-ph-id="Paste jawaban Gemini di sini…" data-ph-en="Paste Gemini's answer here…"></textarea>
+  <label for="pov-grok">4. POV Grok (The Street Smart)</label>
+  <textarea id="pov-grok" data-ph-id="Paste jawaban Grok di sini…" data-ph-en="Paste Grok's answer here…"></textarea>
+
+  <div class="actions">
+    <button id="make-synth" class="orange" type="button"><span class="lang-id">🧠 Racik Prompt Sintesis</span><span class="lang-en">🧠 Craft Synthesis Prompt</span></button>
+    <button class="secondary" id="copy-synth" type="button"><span class="lang-id">Salin Prompt Sintesis</span><span class="lang-en">Copy Synthesis Prompt</span></button>
+    <button class="secondary" id="clear-synth" type="button"><span class="lang-id">Bersihkan</span><span class="lang-en">Clear</span></button>
+  </div>
+  <label for="output-synth"><span class="lang-id">Prompt Sintesis</span><span class="lang-en">Synthesis prompt</span></label>
+  <textarea id="output-synth" readonly style="min-height:250px" data-ph-id="Prompt Sintesis Analitis akan tampil di sini…" data-ph-en="The analytical synthesis prompt will appear here…"></textarea>
+  <p class="small lang-id"><em>Cara pakai:</em> setelah tersalin, buka tab AI baru (ChatGPT/Claude/lainnya), tempel, lalu tekan Enter. Kesepakatan antar-AI bukan bukti kebenaran; tetap periksa sumber primer.</p>
+  <p class="small lang-en"><em>How to use:</em> after copying, open a new AI tab (ChatGPT/Claude/other), paste, and press Enter. Agreement between AIs is not proof of truth; still check primary sources.</p>
+  <div class="status" id="status2" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="section" id="methodology">
+<div class="eyebrow">07 / <span class="lang-id">Landasan Metodologis</span><span class="lang-en">Methodological Foundation</span></div>
+<h2 class="lang-id">Fondasi Metodologis Probabilita Meja Biliar</h2>
+<h2 class="lang-en">Methodological Foundation of Billiard Table Probability</h2>
+<p class="deck lang-id">Kerangka "Probabilita Meja Biliar" dimaksudkan lebih dari sekadar metafora. Ia disusun di atas tiga kerangka kerja yang diajukan penulis (Go Kian Tik) sebagai working paper, dan dikontekstualisasikan dengan satu rujukan pihak ketiga tentang tata kelola AI yang bertanggung jawab (ELSA). Kerangka ini masih terbuka untuk diuji dan dikritik.</p>
+<p class="deck lang-en">The "Billiard Table Probability" framework is intended to be more than a metaphor. It is built on three frameworks proposed by the author (Go Kian Tik) as working papers, and contextualized with one third-party reference on responsible AI governance (ELSA). It remains open to testing and critique.</p>
+
+<div class="reference">
+  <strong>1. MAP-TM</strong><span class="badge">Working paper</span><br>
+  <em>MAP-TM: A Proposed Methodological Framework for Multi-AI Probabilistic Trajectory Mapping</em> (v0.1, 8 November 2026).<br>
+  <span class="lang-id">Memperluas kuadran <em>Unknown</em> pada Johari Window menjadi <strong>Johari Frontier</strong>—ruang eksplorasi variabel, relasi, dan lintasan alternatif. MAP-TM memisahkan eksplorasi linguistik oleh LLM dari komputasi probabilitas peristiwa, yang hanya dilakukan bila parameter yang dapat dijustifikasi tersedia.</span>
+  <span class="lang-en">Expands the <em>Unknown</em> quadrant of the Johari Window into the <strong>Johari Frontier</strong>—a space for exploring variables, relations, and alternative trajectories. MAP-TM separates LLM linguistic exploration from event-probability computation, which is performed only when justifiable parameters are available.</span><br>
+  <a href="https://doi.org/10.5281/zenodo.24048468" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.24048468</a>
+</div>
+
+<div class="reference">
+  <strong>2. Two Doors to the Unknown</strong><span class="badge">Working paper</span><br>
+  <em>Two Doors to the Unknown: Sadar Jagat Raya and Inspirasi Kognitif as Parallel Pathways in the Johari Frontier</em> (15 Juli 2026).<br>
+  <span class="lang-id">Mengusulkan bahwa kuadran <em>Unknown</em> dapat dicapai melalui dua pintu: <strong>Sadar Jagat Raya</strong> (praktik kontemplatif Dao Yin Shu) dan <strong>Inspirasi Kognitif</strong> (dialog iteratif manusia-AI).</span>
+  <span class="lang-en">Proposes that the <em>Unknown</em> quadrant can be reached through two doors: <strong>Sadar Jagat Raya</strong> (universal awareness; Dao Yin Shu contemplative practice) and <strong>Inspirasi Kognitif</strong> (cognitive inspiration; iterative human-AI dialogue).</span><br>
+  <a href="https://doi.org/10.5281/zenodo.21370369" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21370369</a>
+</div>
+
+<div class="reference">
+  <strong>3. MANUSAKSI-AI v1.2</strong><span class="badge">Working paper</span><br>
+  <em>MANUSAKSI-AI v1.2: A Human-Authenticated Framework for Documenting Human-AI Interaction, Emergent Experience, and Human-AI Lexicon</em> (29 Agustus 2026).<br>
+  <span class="lang-id">Menetapkan Manusia sebagai <strong>Human Principal / Human Witness</strong> dan AI sebagai <strong>AI Agent / Interpreter</strong>. Prinsip inti: <em>"AI may generate language; Human authenticates experience."</em> Inilah formalisasi dari trilogi "Wo AI, Ni Kamu".</span>
+  <span class="lang-en">Designates Humans as <strong>Human Principal / Human Witness</strong> and AI as <strong>AI Agent / Interpreter</strong>. Core principle: <em>"AI may generate language; Human authenticates experience."</em> This is the formalization of the "Wo AI, Ni Kamu" trilogy.</span><br>
+  <a href="https://ssrn.com/abstract=7370999" target="_blank" rel="noopener noreferrer">https://ssrn.com/abstract=7370999</a> |
+  <a href="http://dx.doi.org/10.2139/ssrn.7370999" target="_blank" rel="noopener noreferrer">http://dx.doi.org/10.2139/ssrn.7370999</a>
+</div>
+
+<div class="reference">
+  <strong>4. ELSA</strong><span class="badge"><span class="lang-id">Rujukan pihak ketiga</span><span class="lang-en">Third-party reference</span></span><br>
+  <em>ELSA Labs for responsible AI: a novel approach for addressing ethical, legal, social issues</em> (Wang, Blok, &amp; van Hilten, 2025).<br>
+  <span class="lang-id">Kerangka <strong>Ethical, Legal, and Social Aspects (ELSA)</strong> dirujuk sebagai konteks tata kelola AI yang bertanggung jawab, selaras dengan semangat <strong>NgRuwat</strong>: AI tidak sekadar kalkulator probabilitas, tetapi bagian dari sistem sosio-teknis yang tunduk pada nilai kemanusiaan. Rujukan ini bukan pengesahan atas kerangka no. 1–3.</span>
+  <span class="lang-en">The <strong>Ethical, Legal, and Social Aspects (ELSA)</strong> framework is cited as context for responsible AI governance, in keeping with the spirit of <strong>NgRuwat</strong>: AI is not merely a probability calculator, but part of a socio-technical system subject to human values. This reference is not an endorsement of frameworks 1–3.</span><br>
+  <a href="https://doi.org/10.1080/23299460.2025.2563944" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/23299460.2025.2563944</a>
+</div>
+
+<p class="lang-id" style="margin-top:25px">Dengan landasan ini, "Meja Biliar" diposisikan sebagai <strong>kerangka kerja yang diajukan</strong> untuk memetakan kemungkinan, menguji bias, dan mengembalikan keputusan kepada manusia. Statusnya working paper (belum peer-review); kritik dan koreksi dipersilakan.</p>
+<p class="lang-en" style="margin-top:25px">With this foundation, the "Billiard Table" is positioned as a <strong>proposed working framework</strong> for mapping possibilities, testing bias, and returning decisions to humans. Its status is working paper (not yet peer-reviewed); critique and correction are welcome.</p>
+</section>
+
+<section class="section" id="ngruwat">
+<div class="eyebrow">08 / <span class="lang-id">Disiplin kejernihan</span><span class="lang-en">Discipline of clarity</span></div>
+<h2 class="lang-id">NgRuwat — membersihkan bias</h2>
+<h2 class="lang-en">NgRuwat — clearing bias</h2>
+<p class="lang-id">Setiap pembacaan membawa kemungkinan bias: bias algoritmik, bias konfirmasi, bias kelompok, bias sumber, dan bias diri sendiri. NgRuwat adalah disiplin untuk memeriksa apakah kita sedang membaca data atau hanya melihat pantulan keyakinan sendiri.</p>
+<p class="lang-en">Every reading carries the possibility of bias: algorithmic bias, confirmation bias, group bias, source bias, and self-bias. NgRuwat is the discipline of examining whether we are reading data or merely seeing the reflection of our own beliefs.</p>
+<div class="manifesto">
+  <div class="quote lang-id" style="margin:0">“Apakah saya sedang membaca data, atau sedang membaca pantulan bias saya sendiri?”</div>
+  <div class="quote lang-en" style="margin:0">"Am I reading data, or am I reading the reflection of my own bias?"</div>
+</div>
+<p class="lang-id"><strong>Praktik sederhana:</strong></p>
+<p class="lang-en"><strong>Simple practices:</strong></p>
+<ul class="checklist lang-id">
+  <li>Cari bukti yang berlawanan dengan dugaan awal.</li>
+  <li>Bedakan fakta, interpretasi, dan spekulasi.</li>
+  <li>Periksa sumber primer.</li>
+  <li>Minta AI mengkritik argumen kita.</li>
+  <li>Jangan menganggap kesepakatan beberapa AI sebagai bukti kebenaran.</li>
+</ul>
+<ul class="checklist lang-en">
+  <li>Look for evidence that contradicts your initial hunch.</li>
+  <li>Distinguish fact, interpretation, and speculation.</li>
+  <li>Check primary sources.</li>
+  <li>Ask the AI to critique your argument.</li>
+  <li>Do not treat agreement among several AIs as proof of truth.</li>
+</ul>
+</section>
+
+<section class="section" id="north">
+<div class="eyebrow">09 / <span class="lang-id">Kompas tindakan</span><span class="lang-en">Compass of action</span></div>
+<h2>True North</h2>
+<p class="lang-id">Kesadaran bukan sekadar tahu lebih banyak. Ia tampak dalam arah tindakan: apakah keputusan mendekatkan kita pada kejujuran, keadilan, tanggung jawab, martabat manusia, dan kehidupan bersama yang lebih baik?</p>
+<p class="lang-en">Consciousness is not just knowing more. It shows in the direction of action: do our decisions bring us closer to honesty, justice, responsibility, human dignity, and a better shared life?</p>
+<p class="lang-id">“Lambe lan Laku”: lambe adalah ucapan, laku adalah tindakan. Bahasa dapat menjadi stik yang mengarahkan gerak, tetapi tindakanlah yang memperlihatkan ke mana bola benar-benar melaju.</p>
+<p class="lang-en">"Lambe lan Laku" (Speech and Action): <em>lambe</em> is speech, <em>laku</em> is action. Language can be the cue that directs motion, but action shows where the ball actually goes.</p>
+<div class="quote lang-id">Pukulan terakhir bukan tentang mengendalikan seluruh meja. Ia tentang bertanggung jawab atas stik yang ada di tangan kita.</div>
+<div class="quote lang-en">The final shot is not about controlling the entire table. It is about taking responsibility for the cue in our hands.</div>
+</section>
+</main>
+
+<footer><div class="wrap">
+<div class="kicker">Mbah Hogi Bejo · Koboi Lingua</div>
+<p class="closing lang-id">SADAR.<br>BERDAULAT.<br>BIJAK DALAM PILIHAN.</p>
+<p class="closing lang-en">CONSCIOUS.<br>SOVEREIGN.<br>WISE IN CHOICE.</p>
+<p>From Being Played by the Game to Becoming a Conscious Player.</p>
+<div class="credits">
+  <strong>Mbah Hogi Bejo&trade;</strong><br>
+  <span class="lang-id">Koboi Lingua · Penggagas Probabilita Lingua Framework</span>
+  <span class="lang-en">Lingua Cowboy · Originator of the Probabilita Lingua Framework</span><br><br>
+  <strong>Zì Zhǔ Zhě&trade; 自主者</strong><br>
+  Superhero Café Inside&trade;<br><br>
+  &copy; 2026 Mbah Hogi Bejo&trade;. All Rights Reserved.<br>
+  Probabilita Lingua Framework&trade;<br>
+  <span class="lang-id">Hak cipta di atas berlaku untuk halaman ini. Makalah di Zenodo/SSRN mengikuti lisensinya masing-masing (umumnya CC BY-NC-ND 4.0); periksa halaman DOI tiap makalah.</span>
+  <span class="lang-en">The copyright above applies to this page. Papers on Zenodo/SSRN follow their own licenses (generally CC BY-NC-ND 4.0); check each paper's DOI page.</span><br>
+  <em>v3.4 — Bilingual Edition · 11 November 2026</em>
+</div>
+</div></footer>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var en = false;
+  try { en = localStorage.getItem('mhb-lang') === 'en'; } catch (e) {}
+
+  /* ---------- Bilingual toggle ---------- */
+  function applyLang() {
+    document.body.classList.toggle('en-mode', en);
+    document.documentElement.lang = en ? 'en' : 'id';
+    $('langBtn').textContent = en ? '🌐 ID' : '🌐 EN';
+    var tas = document.querySelectorAll('textarea[data-ph-id]');
+    for (var i = 0; i < tas.length; i++) {
+      tas[i].placeholder = en ? tas[i].getAttribute('data-ph-en') : tas[i].getAttribute('data-ph-id');
+    }
+    var opts = document.querySelectorAll('#role option');
+    for (var j = 0; j < opts.length; j++) {
+      opts[j].textContent = en ? opts[j].getAttribute('data-en') : opts[j].getAttribute('data-id');
+    }
+  }
+  $('langBtn').addEventListener('click', function () {
+    en = !en;
+    try { localStorage.setItem('mhb-lang', en ? 'en' : 'id'); } catch (e) {}
+    applyLang();
+  });
+  applyLang();
+
+  /* ---------- Helpers ---------- */
+  function say(statusId, idMsg, enMsg) {
+    $(statusId).textContent = en ? enMsg : idMsg;
+  }
+  function copyText(el, statusId, okId, okEn) {
+    if (!el.value) return false;
+    var done = function () { say(statusId, okId, okEn); };
+    var fallback = function () {
+      el.removeAttribute('readonly');
+      el.select();
+      try { document.execCommand('copy'); done(); }
+      catch (e) { say(statusId, 'Gagal menyalin. Salin manual dari kotak.', 'Copy failed. Please copy manually from the box.'); }
+      el.setAttribute('readonly', '');
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(el.value).then(done, fallback);
+    } else { fallback(); }
+    return true;
+  }
+
+  /* ---------- Phase 1: POV prompt generator ---------- */
+  var ROLES = {
+    logician: {
+      id: 'Anda berperan sebagai THE LOGICIAN. Bedah struktur masalah, hukum institusional, distribusi kekuasaan, inersia, sebab-akibat, dan asumsi tersembunyi.',
+      en: 'You act as THE LOGICIAN. Dissect the structure of the problem, institutional law, power distribution, inertia, cause and effect, and hidden assumptions.'
+    },
+    ethicist: {
+      id: 'Anda berperan sebagai THE ETHICIST. Bedah dimensi etika, dampak terhadap manusia, keadilan, martabat, dilema moral, dan bias. Lakukan NgRuwat.',
+      en: 'You act as THE ETHICIST. Dissect the ethical dimension, human impact, justice, dignity, moral dilemmas, and bias. Practice NgRuwat (examine your own bias).'
+    },
+    data: {
+      id: 'Anda berperan sebagai THE DATA READER. Petakan konteks makro, data relevan, arus modal, rantai pasok, dan ekspektasi global. Sertakan sumber.',
+      en: 'You act as THE DATA READER. Map the macro context, relevant data, capital flows, supply chains, and global expectations. Include sources.'
+    },
+    street: {
+      id: 'Anda berperan sebagai THE STREET SMART. Baca gesekan kepentingan, aktor, insentif, narasi publik, dan sentimen sosial. Bedakan sinyal dari kebisingan.',
+      en: 'You act as THE STREET SMART. Read the friction of interests, actors, incentives, public narratives, and social sentiment. Separate signal from noise.'
+    },
+    panel: {
+      id: 'Analisis isu ini secara berurutan melalui empat lensa: (1) THE LOGICIAN: struktur, hukum institusional, kekuasaan, inersia; (2) THE ETHICIST: etika, dampak manusia, bias (NgRuwat); (3) THE DATA READER: data dan konteks global, dengan sumber; (4) THE STREET SMART: kepentingan, insentif, narasi publik, sinyal vs kebisingan. Tutup dengan ringkasan titik temu dan perbedaan antar-lensa.',
+      en: 'Analyze this issue sequentially through four lenses: (1) THE LOGICIAN: structure, institutional law, power, inertia; (2) THE ETHICIST: ethics, human impact, bias (NgRuwat); (3) THE DATA READER: data and global context, with sources; (4) THE STREET SMART: interests, incentives, public narratives, signal vs noise. Close with a summary of convergences and differences between lenses.'
+    }
+  };
+
+  function buildPov() {
+    var issue = $('issue').value.trim();
+    if (!issue) {
+      say('status1', 'Isi isu atau pertanyaan terlebih dahulu.', 'Please enter an issue or question first.');
+      $('issue').focus();
+      return false;
+    }
+    var role = ROLES[$('role').value] || ROLES.logician;
+    var out;
+    if (en) {
+      out = 'CONTEXT: You are assisting with the "Billiard Table Probability" thought experiment by Mbah Hogi Bejo, Lingua Cowboy. Treat socio-political dynamics like a billiard table: (1) Physics/Power: institutional mass and inertia; (2) Friction/Interest: incentives that deflect motion; (3) Probability/Uncertainty: unexpected bounces caused by small variables. Humans hold the cue; AI helps map possibilities. This is a thinking map, not a prediction formula.\n\n' +
+        'ISSUE:\n' + issue + '\n\n' +
+        'TASK:\n' + role.en + '\n\n' +
+        'RULES:\n- Strictly separate FACT, INTERPRETATION, and SPECULATION.\n- Cite sources where possible and flag claims you cannot verify.\n- Do not give numeric probabilities unless the parameters can be justified; otherwise use qualitative ranges (low/medium/high).\n- Respond in English.\n\n' +
+        'End with this question: "What shot is consciously and responsibly within human control?"';
+    } else {
+      out = 'KONTEKS: Anda membantu eksperimen berpikir "Probabilita Meja Biliar" ala Mbah Hogi Bejo, Koboi Lingua. Anggap dinamika sosial-politik seperti meja biliar: (1) Fisika/Kekuasaan: massa dan inersia institusi; (2) Gesekan/Kepentingan: insentif yang membelokkan gerak; (3) Probabilitas/Ketidakpastian: pantulan tak terduga akibat variabel kecil. Manusia tetap pemegang stik; AI membantu memetakan kemungkinan. Ini peta berpikir, bukan rumus prediksi.\n\n' +
+        'ISU:\n' + issue + '\n\n' +
+        'TUGAS:\n' + role.id + '\n\n' +
+        'ATURAN:\n- Pisahkan dengan tegas FAKTA, INTERPRETASI, dan SPEKULASI.\n- Sertakan sumber bila memungkinkan dan tandai klaim yang tidak dapat Anda verifikasi.\n- Jangan memberi angka probabilitas kecuali parameternya dapat dijustifikasi; gunakan rentang kualitatif (rendah/sedang/tinggi).\n- Jawab dalam Bahasa Indonesia.\n\n' +
+        'Akhiri dengan pertanyaan: "Pukulan apa yang secara sadar dan bertanggung jawab berada dalam kendali manusia?"';
+    }
+    $('output').value = out;
+    say('status1', 'Prompt POV siap. Silakan salin.', 'POV prompt ready. You can copy it now.');
+    return true;
+  }
+
+  $('make').addEventListener('click', buildPov);
+  $('copy').addEventListener('click', function () {
+    if (!$('output').value && !buildPov()) return;
+    copyText($('output'), 'status1', 'Prompt POV berhasil disalin.', 'POV prompt copied.');
+  });
+  $('clear').addEventListener('click', function () {
+    $('issue').value = ''; $('output').value = ''; $('status1').textContent = '';
+  });
+
+  /* ---------- Phase 2: Synthesis engine ---------- */
+  function buildSynth() {
+    var povs = [
+      { label: 'POV 1: THE LOGICIAN / ChatGPT', v: $('pov-chatgpt').value.trim() },
+      { label: 'POV 2: THE ETHICIST / Claude', v: $('pov-claude').value.trim() },
+      { label: 'POV 3: THE DATA READER / Gemini', v: $('pov-gemini').value.trim() },
+      { label: 'POV 4: THE STREET SMART / Grok', v: $('pov-grok').value.trim() }
+    ];
+    var filled = povs.filter(function (p) { return p.v; }).length;
+    if (filled < 2) {
+      say('status2', 'Isi minimal dua POV agar ada yang bisa disintesis.', 'Fill in at least two POVs so there is something to synthesize.');
+      return false;
+    }
+    var issue = $('issue').value.trim() || (en ? '[Issue not specified]' : '[Isu belum ditentukan]');
+    var none = en ? '(Not provided)' : '(Tidak diisi)';
+    var blocks = povs.map(function (p) { return '[' + p.label + ']\n' + (p.v || none); }).join('\n\n');
+    var out;
+
+    if (en) {
+      out = 'YOU ARE "THE REAL SYNTHESIS ENGINE" IN MBAH HOGI BEJO\'S BILLIARD TABLE PROBABILITY FRAMEWORK.\n\n' +
+        'Your task is not merely to summarize, but to read the table geometry: find convergence, expose contradictions, and build an analytical map of possibilities.\n\n' +
+        'METHODOLOGICAL BASIS (proposed working frameworks, not established standards):\n' +
+        '- MAP-TM (Multi-AI Probabilistic Trajectory Mapping): explore possible trajectories in the Johari Frontier. Keep linguistic exploration separate from event-probability computation; compute probabilities only where justifiable parameters exist.\n' +
+        '- MANUSAKSI-AI: AI generates language; the human authenticates experience. You are the AI Agent/Interpreter; the human is the Human Principal.\n' +
+        '- ELSA (Ethical, Legal, and Social Aspects): consider ethical, legal, and social dimensions, not only technical efficiency.\n\n' +
+        'ISSUE UNDER DISCUSSION:\n' + issue + '\n\n' +
+        'BELOW ARE REFLECTIONS (POVs) FROM DIFFERENT AIs. ' + filled + ' of 4 were provided.\n\n' + blocks + '\n\n' +
+        'YOUR TASK (7 STAGES):\n' +
+        '1. CONVERGENCE: what conclusions or patterns do they agree on?\n' +
+        '2. DIVERGENCE: where do they disagree or where do assumptions clash?\n' +
+        '3. BLIND SPOTS: what crucial thing did all of them miss?\n' +
+        '4. EVIDENCE CHECK: separate strong FACTS, INTERPRETATIONS, and SPECULATION. Flag claims lacking sources or that you cannot verify.\n' +
+        '5. PROBABILITY MAPPING: build 3 scenarios (Optimistic, Realistic, Adverse) with their triggers. Use qualitative likelihoods (low/medium/high) unless you can justify numeric parameters.\n' +
+        '6. NGRUWAT / COUNTER-ARGUMENT: give the strongest argument AGAINST your own synthesis, and say what evidence would change your mind. Agreement among the AIs above is not proof of truth.\n' +
+        '7. HUMAN AGENCY: what is the wisest, most responsible action a human can take now?\n\n' +
+        'STRICT RULES:\n- Be sharp and philosophical, yet grounded.\n- Do not mix fact with opinion.\n- Respond in English.\n- End with: "Wo AI, Ni Kamu. The AI has mapped the reflections; the cue stays in your hand."';
+    } else {
+      out = 'ANDA ADALAH "THE REAL SYNTHESIS ENGINE" DALAM FRAMEWORK PROBABILITA MEJA BILIAR ALA MBAH HOGI BEJO.\n\n' +
+        'Tugas Anda bukan sekadar merangkum, melainkan membaca geometri meja: menemukan titik temu, membongkar kontradiksi, dan menyusun peta kemungkinan secara analitis.\n\n' +
+        'LANDASAN METODOLOGIS (kerangka kerja yang diajukan, bukan standar baku):\n' +
+        '- MAP-TM (Multi-AI Probabilistic Trajectory Mapping): jelajahi lintasan yang mungkin di Johari Frontier. Pisahkan eksplorasi linguistik dari komputasi probabilitas peristiwa; hitung probabilitas hanya bila ada parameter yang dapat dijustifikasi.\n' +
+        '- MANUSAKSI-AI: AI menghasilkan bahasa; manusia mengautentikasi pengalaman. Anda adalah AI Agent/Interpreter; manusia adalah Human Principal.\n' +
+        '- ELSA (Ethical, Legal, and Social Aspects): pertimbangkan dimensi etis, hukum, dan sosial, bukan sekadar efisiensi teknis.\n\n' +
+        'ISU YANG DIBAHAS:\n' + issue + '\n\n' +
+        'BERIKUT PANTULAN (POV) DARI AI YANG BERBEDA. ' + filled + ' dari 4 diisi.\n\n' + blocks + '\n\n' +
+        'TUGAS ANDA (7 TAHAP):\n' +
+        '1. CONVERGENCE (Titik Temu): kesimpulan atau pola apa yang disepakati?\n' +
+        '2. DIVERGENCE (Perbedaan): di mana letak perbedaan pendapat atau benturan asumsi?\n' +
+        '3. BLIND SPOTS (Titik Buta): hal krusial apa yang luput dari semua POV?\n' +
+        '4. EVIDENCE CHECK (Uji Bukti): pisahkan FAKTA kuat, INTERPRETASI, dan SPEKULASI. Tandai klaim tanpa sumber atau yang tidak dapat Anda verifikasi.\n' +
+        '5. PROBABILITY MAPPING (Peta Skenario): susun 3 skenario (Optimis, Realistis, Buruk) beserta pemicunya. Gunakan tingkat kemungkinan kualitatif (rendah/sedang/tinggi) kecuali Anda dapat menjustifikasi parameter numerik.\n' +
+        '6. NGRUWAT / ARGUMEN TANDINGAN: berikan argumen terkuat MELAWAN sintesis Anda sendiri, dan sebutkan bukti apa yang akan mengubah kesimpulan Anda. Kesepakatan antar-AI di atas bukan bukti kebenaran.\n' +
+        '7. HUMAN AGENCY (Pukulan Manusia): tindakan paling bijak dan bertanggung jawab apa yang dapat diambil manusia saat ini?\n\n' +
+        'ATURAN KETAT:\n- Gunakan bahasa yang tajam, filosofis, namun membumi.\n- Jangan mencampuradukkan fakta dengan opini.\n- Jawab dalam Bahasa Indonesia.\n- Akhiri dengan kalimat: "Wo AI, Ni Kamu. AI telah memetakan pantulan, stik tetap di tanganmu."';
+    }
+    $('output-synth').value = out;
+    say('status2', 'Prompt sintesis siap. Silakan salin.', 'Synthesis prompt ready. You can copy it now.');
+    return true;
+  }
+
+  $('make-synth').addEventListener('click', buildSynth);
+  $('copy-synth').addEventListener('click', function () {
+    if (!$('output-synth').value) {
+      say('status2', 'Racik prompt sintesis terlebih dahulu.', 'Craft the synthesis prompt first.');
+      return;
+    }
+    copyText($('output-synth'), 'status2', 'Prompt sintesis berhasil disalin.', 'Synthesis prompt copied.');
+  });
+  $('clear-synth').addEventListener('click', function () {
+    ['pov-chatgpt', 'pov-claude', 'pov-gemini', 'pov-grok', 'output-synth'].forEach(function (id) { $(id).value = ''; });
+    $('status2').textContent = '';
+  });
+})();
+</script>
+</body>
+</html>
